@@ -1,0 +1,17 @@
+<h2 class="text-info">Market</h2>
+<div class="mb-2">
+  <div class="row"  *ngIf="collectables.length">
+    <div class="col-12">
+      <ul class="list-group">
+        <li id="item-{{$index}}" class="list-group-item mb-1" *ngFor="let item of collectables;let $index=index">
+          <button class="btn btn-success mr-1" (click)='addToCollection(item,$index)'>Add to collection</button> 
+          {{item.description}} 
+          <span class="badge badge-secondary float-right">{{item.type}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="!collectables.length && isInMarketPage">
+      <h3 class="text-info">All the items are selected please visit Collections page to view selected Items</h3>
+  </div>
+</div>
