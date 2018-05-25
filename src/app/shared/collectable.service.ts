@@ -7,24 +7,24 @@ import { Collectable } from './collectable.models';
 export class CollectableService {
   private collectables: Collectable[] = [
     {
-      'description': 'Wedding Album',
-      'type': 'photos'
+      'description': '16th Century Coins',
+      'type': 'Antiques'
     },
     {
-      'description': 'My fav Songs',
-      'type': 'Mp3 files'
+      'description': '2017 Top Music Albums',
+      'type': 'Music CDs'
     },
     {
-      'description': 'Uma fav Songs',
-      'type': 'Mp3 files'
+      'description': 'SkullCandy Headphones',
+      'type': 'Accessories'
     },
     {
-      'description': 'How to Cook',
+      'description': 'Master Web Application Development',
       'type': 'Book'
     },
     {
-      'description': 'How to Code',
-      'type': 'Book'
+      'description': 'Transcend 1TB Portable drive',
+      'type': 'Storage Devices'
     },
   ];
 

@@ -7,8 +7,8 @@ import { SelectCollectionComponent } from './select-collection/select-collection
 const routes: Routes = [
   {path: 'market', component: MarketComponent},
   {path: 'collection', component: CollectionComponent},
-  {path: 'selection', component: SelectCollectionComponent},
-  {path: '', redirectTo: '/selection', pathMatch: 'full'}
+  {path: 'dashboard', component: SelectCollectionComponent},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 @NgModule({
   imports: [

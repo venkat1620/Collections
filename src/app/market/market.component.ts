@@ -20,10 +20,10 @@ export class MarketComponent implements OnInit {
 
   addToCollection(item: Collectable, index: number) {
     this.collectableService.addToCollection(item, index);
-    this.isInMarketPage = this.location.path() === '/market';
   }
 
   ngOnInit() {
     this.collectables = this.collectableService.getCollectibles();
+    this.isInMarketPage = this.location.path() === '/market';
   }
 }
