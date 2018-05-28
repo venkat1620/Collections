@@ -7,7 +7,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { CollectableService } from './shared/collectable.service';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { SelectCollectionComponent } from './select-collection/select-collection.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { SelectCollectionComponent } from './select-collection/select-collection
     MarketComponent,
     CollectionComponent,
     HeaderComponent,
-    SelectCollectionComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
