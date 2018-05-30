@@ -1,17 +1,31 @@
-<h2 class="text-info">Market</h2>
+<h3 class="text-info">Market</h3>
 <div class="mb-2">
+  <div class="row">
+    <div class="col-6 px-0">
+      <mat-form-field class="col-12">
+        <input matInput type="text" placeholder="Find item" [(ngModel)]="filterValue"/>
+        <button mat-button *ngIf="filterValue" matSuffix mat-icon-button aria-label="Clear" (click)="filterValue=''">
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-hint align="start" *ngIf="filterValue"><strong>{{filteredCounter.count}} results found</strong> </mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      
+    </div>
+  </div>
   <div class="row"  *ngIf="collectables.length">
     <div class="col-12">
       <ul class="list-group">
-        <li id="item-{{$index}}" class="list-group-item mb-1" *ngFor="let item of collectables;let $index=index">
+        <li id="item-{{$index}}" class="list-group-item mb-1" *ngFor="let item of collectables | filter : [filterValue,filteredCounter];let $index=index;">
           <button class="btn btn-success mr-1" (click)='addToCollection(item,$index)'>Add to collection</button> 
-          {{item.description}} 
+          {{item.description}}
           <span class="badge badge-secondary float-right">{{item.type}}</span>
         </li>
       </ul>
     </div>
   </div>
   <div *ngIf="!collectables.length && isInMarketPage">
-      <h3 class="text-info">All the items are selected please visit Collections page to view selected Items</h3>
+      <h4 class="text-info">All the items are selected please visit Collections page to view selected Items</h4>
   </div>
 </div>

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MarketComponent } from './market/market.component';
@@ -8,6 +10,9 @@ import { CollectableService } from './shared/collectable.service';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatInputModule,  MatIconModule, MatButtonModule, MatButtonToggleModule } from '@angular/material';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -15,13 +20,23 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MarketComponent,
     CollectionComponent,
     HeaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatButtonToggleModule,
   ],
-  providers: [CollectableService],
+  providers: [
+    CollectableService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { CollectableService } from '../shared/collectable.service';
-import { Collectable } from '../shared/collectable.models';
+import { Collectable, Counter } from '../shared/collectable.models';
 import { Location } from '@angular/common';
+import { FilterPipe } from '../pipes/filter.pipe';
 
 @Component({
   selector: 'app-market',
@@ -13,6 +14,8 @@ export class MarketComponent implements OnInit {
   collectables: Collectable[];
   isInMarketPage: boolean;
   location: Location;
+  filterValue: string;
+  filteredCounter: Counter;
 
   constructor(private collectableService: CollectableService, private locationService: Location) {
     this.location = this.locationService;
@@ -25,5 +28,6 @@ export class MarketComponent implements OnInit {
   ngOnInit() {
     this.collectables = this.collectableService.getCollectibles();
     this.isInMarketPage = this.location.path() === '/market';
+    this.filteredCounter = { count: 0 };
   }
 }

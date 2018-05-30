@@ -1,32 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Collectable } from './collectable.models';
+import { CollectableData } from './collectable-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CollectableService {
-  private collectables: Collectable[] = [
-    {
-      'description': '16th Century Coins',
-      'type': 'Antiques'
-    },
-    {
-      'description': '2017 Top Music Albums',
-      'type': 'Music CDs'
-    },
-    {
-      'description': 'SkullCandy Headphones',
-      'type': 'Accessories'
-    },
-    {
-      'description': 'Master Web Application Development',
-      'type': 'Book'
-    },
-    {
-      'description': 'Transcend 1TB Portable drive',
-      'type': 'Storage Devices'
-    },
-  ];
+  constructor() { }
+
+  private collectables: Collectable[] = CollectableData.slice(0);
 
   private collectedItems: Collectable[] = [];
 
