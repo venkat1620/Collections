@@ -1,6 +1,6 @@
 <h3 class="text-info">Market</h3>
 <div class="mb-2">
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-6 px-0">
       <mat-form-field class="col-12">
         <input matInput type="text" placeholder="Find item" [(ngModel)]="filterValue"/>
@@ -11,13 +11,17 @@
       </mat-form-field>
     </div>
     <div class="col-6">
-      
+      <mat-form-field class="col-12">
+        <mat-select placeholder="Filter by type" [formControl]="collectableTypeDd"  multiple >
+          <mat-option *ngFor="let type of collectableTypeList" [value]="type" >{{type}}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
   <div class="row"  *ngIf="collectables.length">
     <div class="col-12">
       <ul class="list-group">
-        <li id="item-{{$index}}" class="list-group-item mb-1" *ngFor="let item of collectables | filter : [filterValue,filteredCounter];let $index=index;">
+        <li id="item-{{$index}}" class="list-group-item mb-1" *ngFor="let item of collectables | filter : [filterValue,filteredCounter,collectableTypeDd.value]; let $index=index;">
           <button class="btn btn-success mr-1" (click)='addToCollection(item,$index)'>Add to collection</button> 
           {{item.description}}
           <span class="badge badge-secondary float-right">{{item.type}}</span>

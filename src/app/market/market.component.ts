@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 import { CollectableService } from '../shared/collectable.service';
 import { Collectable, Counter } from '../shared/collectable.models';
@@ -16,9 +17,12 @@ export class MarketComponent implements OnInit {
   location: Location;
   filterValue: string;
   filteredCounter: Counter;
+  collectableTypeList: string[];
+  collectableTypeDd: FormControl;
 
-  constructor(private collectableService: CollectableService, private locationService: Location) {
+  constructor(private collectableService: CollectableService, private locationService: Location ) {
     this.location = this.locationService;
+    this.collectableTypeDd = new FormControl();
   }
 
   addToCollection(item: Collectable, index: number) {
@@ -29,5 +33,12 @@ export class MarketComponent implements OnInit {
     this.collectables = this.collectableService.getCollectibles();
     this.isInMarketPage = this.location.path() === '/market';
     this.filteredCounter = { count: 0 };
+    this.collectableTypeList = [];
+    this.populateCollectableTypeDd(this.collectables);
+  }
+  populateCollectableTypeDd(collectables: Collectable[]) {
+    collectables.forEach((collectable) => {
+      this.collectableTypeList.push(collectable.type);
+    });
   }
 }

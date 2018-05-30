@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { MarketComponent } from './market/market.component';
@@ -10,7 +10,7 @@ import { CollectableService } from './shared/collectable.service';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatInputModule,  MatIconModule, MatButtonModule, MatButtonToggleModule } from '@angular/material';
+import { MatInputModule,  MatIconModule, MatButtonModule, MatButtonToggleModule, MatSelectModule } from '@angular/material';
 import { FilterPipe } from './pipes/filter.pipe';
 
 
@@ -33,6 +33,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatIconModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [
     CollectableService,
